@@ -4,7 +4,8 @@
   "private": true,
   "main": "./bin/www",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "pm2":"pm2 start ./bin/www"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
@@ -21,7 +22,8 @@
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
     "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "pm2": "^4.5.6"
   },
   "devDependencies": {
     "mongoose-profiler": "^0.2.1"
