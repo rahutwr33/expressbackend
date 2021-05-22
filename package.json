@@ -5,7 +5,8 @@
   "main": "./bin/www",
   "scripts": {
     "start": "nodemon ./bin/www",
-    "pm2": "pm2 start ./bin/www"
+    "pm2": "pm2 start ./bin/www",
+    "test":"mocha ./test/test.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
@@ -27,6 +28,8 @@
     "serverless-http": "^2.7.0"
   },
   "devDependencies": {
-    "mongoose-profiler": "^0.2.1"
+    "mocha": "^8.4.0",
+    "mongoose-profiler": "^0.2.1",
+    "supertest": "^6.1.3"
   }
 }
