@@ -29,6 +29,9 @@ app.use('/upload', express.static(__dirname + "/uploads"));
 
 app.use('/auth', authRouter);
 app.use('/', indexRouter);
+app.get('/search',function(req,res) {
+  res.sendFile(path.join(__dirname+'/frontend/index.html'));
+});
 app.use('/user', passport.authenticate('jwt', { session: false }), userRouter);
 app.use('/product',  productRouter);
 
