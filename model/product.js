@@ -8,6 +8,7 @@ const ProductSchema = new Schema({
   quantity: Number,
   image: String,
   category: { type: String, es_indexed: true },
+  description:{ type: String, es_indexed: true },
   isdeleted: { type: Boolean, default: false },
 }, { timestamps: true },
   { autoIndex: true });
@@ -17,12 +18,7 @@ ProductSchema.plugin(mongoosastic, {
     'localhost:9200'
   ]
 });
-// ProductSchema.plugin(mongooseProfiler({
-//   isAlwaysShowQuery: true,
-//   duration: 1000,          // Show query plans when it took more than this time (ms).
-//   totalDocsExamined: 1000, // Show query plans when "totalDocsExamined" more than this value.
-//   level: 'COLLSCAN'        // Show query plans when the stage is "COLLSCAN".
-// }));
+
 var Product =  mongoose.model('product', ProductSchema);
 Product.createMapping({
   "settings": {

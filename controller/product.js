@@ -28,13 +28,13 @@ const uploadImage = async function(req,res){
 }
 
 const getProduct = async function(req,res){
-    const dbcon = await connectDatabase();  //connect to database common method
+    // const dbcon = await connectDatabase();  //connect to database common method
     const searchText = req.query.search;
     esClient.search({
         index: "products",
         body: {
             query: {
-                match: {"name": searchText.trim()},
+                match_phrase: {"name": `.*${searchText.trim()}.*` },
             },
             "aggs": {
                 "docs": {
@@ -51,14 +51,6 @@ const getProduct = async function(req,res){
     .catch(err => {
         return res.status(500).json({"message": "Error"})
     })
-    // Product.find({},function(err,product){
-    //     if(err){
-    //         return res.status(401).json({"success": false, message: err.toString()});
-    //     }else{
-    //         dbcon.connection.close() //close connection 
-    //         return res.status(200).json({"success": true, data: product})
-    //     }
-    // })
 }
 
 

@@ -1,8 +1,4 @@
 const mongoose = require('mongoose');
-
-
-let isConnected;
-
 mongoose.Promise = global.Promise;
 
 mongoose.connection.on('connected', () => {
